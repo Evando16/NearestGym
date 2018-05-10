@@ -4,15 +4,18 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.pm.PackageManager
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.location.Location
 import android.os.Bundle
+import android.os.Environment
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import com.freegym.ej.freegym.database.DatabaseHelper
+import com.ajts.androidmads.sqliteimpex.SQLiteImporterExporter
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -42,7 +45,6 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
     private var mLocationRequest: LocationRequest? = null
     private val UPDATE_INTERVAL = (2 * 1000).toLong()  /* 10 secs */
     private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
-    private var databaseHelper: DatabaseHelper? = null
 
 
     override fun onConnected(p0: Bundle?) {
@@ -91,7 +93,7 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 .setFastestInterval(FASTEST_INTERVAL);
         // Request location updates
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
+            return
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
                 mLocationRequest, this)
@@ -100,26 +102,51 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        databaseHelper = DatabaseHelper(this, "/data/data/${this.getPackageName()}/databases/", "gym")
-        try {
-            databaseHelper!!.createDataBase()
-        } catch (e: IOException) {
-            throw Error("Não foi possivel criar o banco")
-        }
 
-        try {
-            databaseHelper!!.openDataBase()
-        } catch (sqle: SQLException) {
-            throw sqle
-        }
+        var sqLiteImporterExporter: SQLiteImporterExporter
+        var path: String = Environment.getExternalStorageDirectory().absolutePath + "/"
+        val db = "gym.db"
 
-        var c = databaseHelper!!.query("Places", null, null, null, null, null, null)
+        sqLiteImporterExporter = SQLiteImporterExporter(this, db)
+        sqLiteImporterExporter.importDataBaseFromAssets()
+        var database: SQLiteDatabase = sqLiteImporterExporter.readableDatabase
 
-        if (c.moveToFirst()) {
-            do {
-                Toast.makeText(this, c.getString(0), Toast.LENGTH_SHORT).show()
-            }while (c.moveToNext())
+        val cursor: Cursor
+
+        val list = ArrayList<String>()
+
+        cursor = database.rawQuery("SELECT * FROM Places", null);
+        list.clear()
+
+        if (cursor.count > 0) {
+            if (cursor.moveToFirst()) {
+                do {
+                    list.add(cursor.getString(cursor.getColumnIndex("Nome")))
+                } while (cursor.moveToNext())
+            }
         }
+        cursor.close()
+
+//        databaseHelper = DatabaseHelper(this, "/data/data/${this.getPackageName()}/databases/", "gym.db")
+//        try {
+//            databaseHelper!!.createDataBase()
+//        } catch (e: IOException) {
+//            throw Error("Não foi possivel criar o banco")
+//        }
+//
+//        try {
+//            databaseHelper!!.openDataBase()
+//        } catch (sqle: SQLException) {
+//            throw sqle
+//        }
+//
+//        var c = databaseHelper!!.query("Places", null, null, null, null, null, null)
+//
+//        if (c.moveToFirst()) {
+//            do {
+//                Toast.makeText(this, c.getString(0), Toast.LENGTH_SHORT).show()
+//            }while (c.moveToNext())
+//        }
 
         setContentView(R.layout.activity_gym_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
