@@ -5,10 +5,10 @@ class Place {
     var nome: String = ""
     var logradouro: String = ""
     var bairro: String = ""
-    var lat: Int = 0
-    var long: Int = 0
+    var lat: Double = 0.0
+    var long: Double = 0.0
 
-    constructor(nome: String, logradouro: String, bairro: String, lat: Int, long: Int) {
+    constructor(nome: String, logradouro: String, bairro: String, lat: Double, long: Double) {
         this.nome = nome
         this.logradouro = logradouro
         this.bairro = bairro

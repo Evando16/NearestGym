@@ -14,7 +14,6 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Toast
 import com.ajts.androidmads.sqliteimpex.SQLiteImporterExporter
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -26,13 +25,11 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.maps.android.SphericalUtil
-import java.io.IOException
-import java.sql.SQLException
-
 
 class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -41,10 +38,13 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private val TAG = "MainActivity"
     private lateinit var mGoogleApiClient: GoogleApiClient
-    lateinit var mLocation: Location
+    private lateinit var mLocation: Location
     private var mLocationRequest: LocationRequest? = null
     private val UPDATE_INTERVAL = (2 * 1000).toLong()  /* 10 secs */
     private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
+    private var listGym: ArrayList<Place> = ArrayList()
+    private lateinit var nearestGymLatLng: LatLng
+    private var nearestGymDistance: Double = Double.MAX_VALUE
 
 
     override fun onConnected(p0: Bundle?) {
@@ -63,8 +63,15 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     if (location != null) {
                         // Logic to handle location object
                         mLocation = location
-                        val currentLocation = LatLng(location.latitude, location.longitude)
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 14.5f))
+                        nearestGym(5)
+//                        mMap.addMarker(MarkerOptions().position(LatLng(mLocation.latitude, mLocation.longitude))
+//                                .title("Current Location"))
+
+                        mMap.addMarker(MarkerOptions().position(nearestGymLatLng)
+                                .title("Academia próxíma")).showInfoWindow()
+//                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(nearestGymLatLng, 14.5f))
+
                     }
                 })
     }
@@ -104,7 +111,6 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         super.onCreate(savedInstanceState)
 
         var sqLiteImporterExporter: SQLiteImporterExporter
-        var path: String = Environment.getExternalStorageDirectory().absolutePath + "/"
         val db = "gym.db"
 
         sqLiteImporterExporter = SQLiteImporterExporter(this, db)
@@ -113,40 +119,21 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
         val cursor: Cursor
 
-        val list = ArrayList<String>()
-
         cursor = database.rawQuery("SELECT * FROM Places", null);
-        list.clear()
+        listGym.clear()
 
         if (cursor.count > 0) {
             if (cursor.moveToFirst()) {
                 do {
-                    list.add(cursor.getString(cursor.getColumnIndex("Nome")))
+                    listGym.add(Place(cursor.getString(cursor.getColumnIndex("Nome")),
+                            cursor.getString(cursor.getColumnIndex("Logradouro")),
+                            cursor.getString(cursor.getColumnIndex("Bairro")),
+                            cursor.getDouble(cursor.getColumnIndex("Latitude")),
+                            cursor.getDouble(cursor.getColumnIndex("Longitude"))))
                 } while (cursor.moveToNext())
             }
         }
         cursor.close()
-
-//        databaseHelper = DatabaseHelper(this, "/data/data/${this.getPackageName()}/databases/", "gym.db")
-//        try {
-//            databaseHelper!!.createDataBase()
-//        } catch (e: IOException) {
-//            throw Error("Não foi possivel criar o banco")
-//        }
-//
-//        try {
-//            databaseHelper!!.openDataBase()
-//        } catch (sqle: SQLException) {
-//            throw sqle
-//        }
-//
-//        var c = databaseHelper!!.query("Places", null, null, null, null, null, null)
-//
-//        if (c.moveToFirst()) {
-//            do {
-//                Toast.makeText(this, c.getString(0), Toast.LENGTH_SHORT).show()
-//            }while (c.moveToNext())
-//        }
 
         setContentView(R.layout.activity_gym_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -174,37 +161,40 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 == PackageManager.PERMISSION_GRANTED) {
             buildGoogleApiClient()
 
-            val home = LatLng(-19.923962, -43.911767)
-
-            val currentLocation = LatLng(-19.923842, -43.912110)
-            val currentLocation2 = LatLng(-19.930699, -43.899450)
-            val currentLocation3 = LatLng(-19.929649, -43.926015)
 
 //            gymDatabase!!.createDataBase()
 //            gymDatabase!!.openDataBase()
 //            var teste = gymDatabase!!.searchNearestPlaces(currentLocation, 5)
 
-            mMap.addMarker(MarkerOptions().position(currentLocation)
-                    .title("Home"))
-
-            val currentLocationInt = SphericalUtil.computeDistanceBetween(home, currentLocation)
-            val currentLocationInt2 = SphericalUtil.computeDistanceBetween(home, currentLocation2)
-            val currentLocationInt3 = SphericalUtil.computeDistanceBetween(home, currentLocation3)
+//            val currentLocationInt = SphericalUtil.computeDistanceBetween(home, currentLocation)
+//            val currentLocationInt2 = SphericalUtil.computeDistanceBetween(home, currentLocation2)
+//            val currentLocationInt3 = SphericalUtil.computeDistanceBetween(home, currentLocation3)
 
 
-            var nearest = 0.0
-            nearest = when {
-                nearest <= currentLocationInt -> currentLocationInt
-                nearest <= currentLocationInt2 -> currentLocationInt2
-                else -> currentLocationInt3
-            }
+//            var nearest = 0.0
+//            nearest = when {
+//                nearest <= currentLocationInt -> currentLocationInt
+//                nearest <= currentLocationInt2 -> currentLocationInt2
+//                else -> currentLocationInt3
+//            }
 
-            Toast.makeText(this, "Nearest $nearest", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Nearest $nearest", Toast.LENGTH_SHORT).show()
 
-
-            mMap.setMyLocationEnabled(true)
+            mMap.isMyLocationEnabled = true
         } else {
             checkLocationPermission()
+        }
+    }
+
+    fun nearestGym(distante: Int) {
+        listGym.forEach { place ->
+            var placeLocation = LatLng(place.lat, place.long)
+            var distante = SphericalUtil.computeDistanceBetween(placeLocation, LatLng(mLocation.latitude, mLocation.longitude))
+
+            if (distante < nearestGymDistance){
+                nearestGymDistance = distante
+                nearestGymLatLng = placeLocation
+            }
         }
     }
 
