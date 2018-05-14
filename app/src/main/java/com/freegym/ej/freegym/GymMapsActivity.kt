@@ -42,9 +42,12 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
     private var mLocationRequest: LocationRequest? = null
     private val UPDATE_INTERVAL = (2 * 1000).toLong()  /* 10 secs */
     private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
+    private val DISTANCE: Int = 3
     private var listGym: ArrayList<Place> = ArrayList()
+    private var listNearGym: ArrayList<Place> = ArrayList()
     private lateinit var nearestGymLatLng: LatLng
     private var nearestGymDistance: Double = Double.MAX_VALUE
+    private lateinit var nearestPlace: Place
 
 
     override fun onConnected(p0: Bundle?) {
@@ -57,41 +60,40 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
         var fusedLocationProviderClient:
                 FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        fusedLocationProviderClient.getLastLocation()
-                .addOnSuccessListener(this, OnSuccessListener<Location> { location ->
-                    // Got last known location. In some rare situations this can be null.
+        fusedLocationProviderClient.lastLocation
+                .addOnSuccessListener(this, { location ->
                     if (location != null) {
-                        // Logic to handle location object
+
                         mLocation = location
-                        nearestGym(5)
-//                        mMap.addMarker(MarkerOptions().position(LatLng(mLocation.latitude, mLocation.longitude))
-//                                .title("Current Location"))
+                        nearestGym()
+
+                        listNearGym.forEach { nearGym ->
+                            mMap.addMarker(MarkerOptions().position(LatLng(nearGym.lat, nearGym.long))
+                                    .title(nearGym.nome)).showInfoWindow()
+                        }
 
                         mMap.addMarker(MarkerOptions().position(nearestGymLatLng)
-                                .title("Academia próxíma")).showInfoWindow()
-//                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(nearestGymLatLng, 14.5f))
+                                .title(nearestPlace.nome)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+                                .showInfoWindow()
 
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(nearestGymLatLng, 14.5f))
                     }
                 })
     }
 
     override fun onConnectionSuspended(p0: Int) {
-
-        Log.i(TAG, "Connection Suspended");
-        mGoogleApiClient.connect();
+        mGoogleApiClient.connect()
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
-        Log.i(TAG, "Connection failed. Error: " + connectionResult.getErrorCode());
+        Log.i(TAG, "Connection failed. Error: " + connectionResult.errorCode)
     }
 
     override fun onLocationChanged(location: Location) {
-//        val currentLocation = LatLng(location.latitude, location.longitude)
-//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 14.5f))
     }
 
-    protected fun startLocationUpdates() {
+    private fun startLocationUpdates() {
 
         // Create the location request
         mLocationRequest = LocationRequest.create()
@@ -136,14 +138,13 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         cursor.close()
 
         setContentView(R.layout.activity_gym_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
     @Synchronized
-    protected fun buildGoogleApiClient() {
+    private fun buildGoogleApiClient() {
         mGoogleApiClient = GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -186,16 +187,24 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         }
     }
 
-    fun nearestGym(distante: Int) {
+    fun nearestGym() {
         listGym.forEach { place ->
             var placeLocation = LatLng(place.lat, place.long)
-            var distante = SphericalUtil.computeDistanceBetween(placeLocation, LatLng(mLocation.latitude, mLocation.longitude))
+            var distantePlace = SphericalUtil.computeDistanceBetween(placeLocation, LatLng(mLocation.latitude, mLocation.longitude))
 
-            if (distante < nearestGymDistance){
-                nearestGymDistance = distante
+            if (distantePlace < nearestGymDistance) {
+                nearestGymDistance = distantePlace
                 nearestGymLatLng = placeLocation
+                nearestPlace = place
             }
+
+            if (distantePlace <= (DISTANCE * 1000)) {
+                listNearGym.add(place)
+            }
+
         }
+
+        listNearGym.remove(nearestPlace)
     }
 
     private val MY_PERMISSIONS_REQUEST_LOCATION = 99
