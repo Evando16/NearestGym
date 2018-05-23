@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_equipment"
+        android:title="Equipamentos"
+        android:icon="@drawable/ic_equipment" />
+
+    <item
+        android:id="@+id/ic_stretching"
+        android:title="Alongamentos"
+        android:icon="@drawable/ic_stretching" />
+
+    <item
+        android:id="@+id/ic_map"
+        android:title="Academias"
+        android:icon="@drawable/ic_map" />
+</menu>
