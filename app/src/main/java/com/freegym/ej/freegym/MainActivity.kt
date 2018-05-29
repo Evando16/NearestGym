@@ -10,15 +10,22 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
+import com.freegym.ej.freegym.adapter.EquipmentsAdapter
+import com.freegym.ej.freegym.model.Equipment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val recyclerView = equipments_recycler_view
+        recyclerView.adapter = EquipmentsAdapter(buildEquipments(), this)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         val bottomNavigationView = findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener { selectedItem ->
@@ -33,6 +40,21 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
+    }
+
+    private fun buildEquipments(): List<Equipment> {
+        return listOf(
+                Equipment("Equipamento #1", ""),
+                Equipment("Equipamento #2", ""),
+                Equipment("Equipamento #3", ""),
+                Equipment("Equipamento #4", ""),
+                Equipment("Equipamento #5", ""),
+                Equipment("Equipamento #6", ""),
+                Equipment("Equipamento #7", ""),
+                Equipment("Equipamento #8", ""),
+                Equipment("Equipamento #9", ""),
+                Equipment("Equipamento #10", "")
+        )
     }
 
     private val MY_PERMISSIONS_REQUEST_LOCATION = 99
