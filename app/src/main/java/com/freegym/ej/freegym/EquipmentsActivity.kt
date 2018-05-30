@@ -17,7 +17,7 @@ import com.freegym.ej.freegym.adapter.EquipmentsAdapter
 import com.freegym.ej.freegym.model.Equipment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class EquipmentsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
