@@ -6,12 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".EquipmentsActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:title="Equipamentos"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#FFFFFF" />
+
     <android.support.v7.widget.RecyclerView
         android:background="#F0F0F0"
         android:id="@+id/equipments_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_marginBottom="46dp"
         android:padding="10dp" />
 

@@ -2,7 +2,6 @@ package com.freegym.ej.freegym
 
 import android.Manifest
 import android.content.DialogInterface
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +12,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.widget.Toast
 import com.freegym.ej.freegym.adapter.EquipmentsAdapter
 import com.freegym.ej.freegym.model.Equipment
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_equipments.*
 
 class EquipmentsActivity : AppCompatActivity() {
 
@@ -21,7 +20,8 @@ class EquipmentsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_equipments)
+        setSupportActionBar(appbar)
 
         initEquipmentsListRecyclerView()
         initBottomNavigationView()
