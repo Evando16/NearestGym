@@ -8,13 +8,13 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.location.Location
 import android.os.Bundle
-import android.os.Environment
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.ajts.androidmads.sqliteimpex.SQLiteImporterExporter
+import com.freegym.ej.freegym.model.Gym
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -25,7 +25,6 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnSuccessListener
@@ -42,7 +41,7 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
     private var mLocationRequest: LocationRequest? = null
     private val UPDATE_INTERVAL = (2 * 1000).toLong()  /* 10 secs */
     private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
-    private var listGym: ArrayList<Place> = ArrayList()
+    private var listGym: ArrayList<Gym> = ArrayList()
     private lateinit var nearestGymLatLng: LatLng
     private var nearestGymDistance: Double = Double.MAX_VALUE
 
@@ -125,7 +124,7 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         if (cursor.count > 0) {
             if (cursor.moveToFirst()) {
                 do {
-                    listGym.add(Place(cursor.getString(cursor.getColumnIndex("Nome")),
+                    listGym.add(Gym(cursor.getString(cursor.getColumnIndex("Nome")),
                             cursor.getString(cursor.getColumnIndex("Logradouro")),
                             cursor.getString(cursor.getColumnIndex("Bairro")),
                             cursor.getDouble(cursor.getColumnIndex("Latitude")),
@@ -188,7 +187,7 @@ class GymMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     fun nearestGym(distante: Int) {
         listGym.forEach { place ->
-            var placeLocation = LatLng(place.lat, place.long)
+            var placeLocation = LatLng(place.latitude, place.longitude)
             var distante = SphericalUtil.computeDistanceBetween(placeLocation, LatLng(mLocation.latitude, mLocation.longitude))
 
             if (distante < nearestGymDistance){
