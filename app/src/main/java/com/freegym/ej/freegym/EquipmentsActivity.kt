@@ -51,6 +51,8 @@ class EquipmentsActivity : AppCompatActivity() {
                 .replace(R.id.home_fragment, EquipmentsFragment())
                 .addToBackStack(null)
                 .commit()
+
+        appbar.title = "Equipamentos"
     }
 
     private fun handleIconStretchingTap() {
@@ -59,6 +61,8 @@ class EquipmentsActivity : AppCompatActivity() {
                 .replace(R.id.home_fragment, StretchingsFragment())
                 .addToBackStack(null)
                 .commit()
+
+        appbar.title = "Alongamentos"
     }
 
     private fun handleIconMapTap() {
