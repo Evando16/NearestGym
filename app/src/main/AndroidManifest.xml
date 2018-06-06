@@ -43,7 +43,8 @@
         <activity
             android:name=".GymMapsActivity"
             android:label="@string/title_activity_gym_maps"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".DetailsActivity"></activity>
     </application>
 
 </manifest>
