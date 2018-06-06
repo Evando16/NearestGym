@@ -2,7 +2,6 @@ package com.freegym.ej.freegym
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_equipments.*
 
 class DetailsActivity : AppCompatActivity() {
 
