@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "258713335515",
+    "firebase_url": "https://mais-ativo-academia.firebaseio.com",
+    "project_id": "mais-ativo-academia",
+    "storage_bucket": "mais-ativo-academia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258713335515:android:74f9eff1f3e97846",
+        "android_client_info": {
+          "package_name": "com.freegym.ej.freegym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258713335515-1bt7dop4n4jra0np8tsuq71735i7nls5.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "258713335515-1bt7dop4n4jra0np8tsuq71735i7nls5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVBwsomTTNtkXPvtbs6lG4qV1OA9ojdWM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
