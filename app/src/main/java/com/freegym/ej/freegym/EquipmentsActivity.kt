@@ -21,8 +21,10 @@ class EquipmentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_equipments)
         setSupportActionBar(appbar)
+
         initBottomNavigationView()
         initFragment()
+        loadDatabase()
     }
 
     private fun initBottomNavigationView() {
@@ -43,6 +45,10 @@ class EquipmentsActivity : AppCompatActivity() {
 
     private fun initFragment() {
         handleIconEquipmentTap()
+    }
+
+    private fun loadDatabase() {
+        // Should load initial data from database
     }
 
     private fun handleIconEquipmentTap() {
