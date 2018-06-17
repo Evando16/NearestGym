@@ -3,13 +3,14 @@ package com.freegym.ej.freegym
 import android.Manifest
 import android.content.DialogInterface
 import android.content.pm.PackageManager
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.freegym.ej.freegym.fragment.EquipmentsFragment
+import com.freegym.ej.freegym.fragment.MapsFragment
 import com.freegym.ej.freegym.fragment.StretchingsFragment
 import kotlinx.android.synthetic.main.activity_equipments.*
 
@@ -67,7 +68,12 @@ class EquipmentsActivity : AppCompatActivity() {
 
     private fun handleIconMapTap() {
         ensureGetLocationPermission()
-        Toast.makeText(application, "Academias", Toast.LENGTH_SHORT).show()
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.home_fragment, MapsFragment())
+                .addToBackStack(null)
+                .commit()
+        appbar.title = "Academias"
     }
 
     private fun ensureGetLocationPermission() {
