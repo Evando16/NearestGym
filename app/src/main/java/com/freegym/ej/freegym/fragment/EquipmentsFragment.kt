@@ -1,6 +1,5 @@
 package com.freegym.ej.freegym.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.StaggeredGridLayoutManager
@@ -9,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.freegym.ej.freegym.R
 import com.freegym.ej.freegym.adapter.EquipmentsAdapter
+import com.freegym.ej.freegym.database.database
 import com.freegym.ej.freegym.model.Equipment
 import kotlinx.android.synthetic.main.fragment_equipments.*
 
