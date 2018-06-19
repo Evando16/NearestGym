@@ -30,6 +30,7 @@ class EquipmentsActivity : AppCompatActivity() {
         initBottomNavigationView()
         initFragment()
         addDatabaseUpdateListener()
+        ensureGetLocationPermission()
     }
 
     private fun initBottomNavigationView() {
@@ -60,10 +61,11 @@ class EquipmentsActivity : AppCompatActivity() {
          * is way better, since we don't need to listen to changes all the time. But for development
          * purposes, `addValueEventListener` saves us a lot of time.
          */
-        dbReference.child("equipments").addValueEventListener(object: ValueEventListener {
+        dbReference.child("equipments").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 println("Received data: ${snapshot.value}")
             }
+
             override fun onCancelled(error: DatabaseError) {}
         })
     }
@@ -89,13 +91,16 @@ class EquipmentsActivity : AppCompatActivity() {
     }
 
     private fun handleIconMapTap() {
-        ensureGetLocationPermission()
-        supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.home_fragment, MapsFragment())
-                .addToBackStack(null)
-                .commit()
-        appbar.title = "Academias"
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ensureGetLocationPermission();
+        } else {
+            supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.home_fragment, MapsFragment())
+                    .addToBackStack(null)
+                    .commit()
+            appbar.title = "Academias"
+        }
     }
 
     private fun ensureGetLocationPermission() {
