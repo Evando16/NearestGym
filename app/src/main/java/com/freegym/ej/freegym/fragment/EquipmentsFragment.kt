@@ -6,10 +6,10 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.beust.klaxon.Klaxon
 import com.freegym.ej.freegym.R
 import com.freegym.ej.freegym.adapter.EquipmentsAdapter
-import com.freegym.ej.freegym.database.database
-import com.freegym.ej.freegym.model.Equipment
+import com.freegym.ej.freegym.model.EquipmentModel
 import kotlinx.android.synthetic.main.fragment_equipments.*
 
 class EquipmentsFragment : Fragment() {
@@ -35,18 +35,16 @@ class EquipmentsFragment : Fragment() {
         equipmentsListRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }
 
-    private fun buildEquipments(): List<Equipment> {
-        return listOf(
-                Equipment("Multiexercitador", ""),
-                Equipment("Pressão de Pernas", ""),
-                Equipment("Remada Sentada", ""),
-                Equipment("Extensora e Agachamento", ""),
-                Equipment("Alongador", ""),
-                Equipment("Rotação Vertical", ""),
-                Equipment("Simulador de Cavalgada", ""),
-                Equipment("Rotação Dupla Digonal", ""),
-                Equipment("Simulador de Caminhada", ""),
-                Equipment("Esqui", "")
-        )
+    private fun buildEquipments(): List<EquipmentModel> {
+        val equipmentsDbFileName = "equipments.db.json"
+        var readDbFileContent = context?.assets?.open(equipmentsDbFileName)?.bufferedReader().use { it?.readText() }
+        if (readDbFileContent == null)
+            readDbFileContent = "[]"
+
+        var equipmentsModel = Klaxon().parseArray<EquipmentModel>(readDbFileContent)
+        if (equipmentsModel == null)
+            equipmentsModel = emptyList()
+
+        return equipmentsModel
     }
 }
