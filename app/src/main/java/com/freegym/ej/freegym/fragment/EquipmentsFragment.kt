@@ -13,7 +13,6 @@ import com.freegym.ej.freegym.model.EquipmentModel
 import kotlinx.android.synthetic.main.fragment_equipments.*
 
 class EquipmentsFragment : Fragment() {
-
     companion object {
         fun newInstance(): EquipmentsFragment {
             return EquipmentsFragment()

@@ -17,7 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.ajts.androidmads.sqliteimpex.SQLiteImporterExporter
 import com.freegym.ej.freegym.R
-import com.freegym.ej.freegym.model.Gym
+import com.freegym.ej.freegym.model.GymModel
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -39,11 +39,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
     private var mLocationRequest: LocationRequest? = null
     private val UPDATE_INTERVAL = (2 * 1000).toLong()  /* 10 secs */
     private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
-    private var listGym: ArrayList<Gym> = ArrayList()
-    private var listNearGym: ArrayList<Gym> = ArrayList()
+    private var listGymModel: ArrayList<GymModel> = ArrayList()
+    private var listNearGymModel: ArrayList<GymModel> = ArrayList()
     private lateinit var nearestGymLatLng: LatLng
     private var nearestGymDistance: Double = Double.MAX_VALUE
-    private lateinit var nearestPlace: Gym
+    private lateinit var nearestPlace: GymModel
     private val DISTANCE: Int = 3000 //5km
 
 
@@ -92,7 +92,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
                             mLocation = location
                             nearestGym()
 
-                            listNearGym.forEach { nearGym ->
+                            listNearGymModel.forEach { nearGym ->
                                 mMap.addMarker(MarkerOptions().position(LatLng(nearGym.latitude, nearGym.longitude))
                                         .title(nearGym.name)).showInfoWindow()
                             }
@@ -121,12 +121,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
         val cursor: Cursor
 
         cursor = database.rawQuery("SELECT * FROM Places", null);
-        listGym.clear()
+        listGymModel.clear()
 
         if (cursor.count > 0) {
             if (cursor.moveToFirst()) {
                 do {
-                    listGym.add(Gym(cursor.getString(cursor.getColumnIndex("Nome")),
+                    listGymModel.add(GymModel(cursor.getString(cursor.getColumnIndex("Nome")),
                             cursor.getString(cursor.getColumnIndex("Logradouro")),
                             cursor.getString(cursor.getColumnIndex("Bairro")),
                             cursor.getDouble(cursor.getColumnIndex("Latitude")),
@@ -234,7 +234,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
     }
 
     fun nearestGym() {
-        listGym.forEach { place ->
+        listGymModel.forEach { place ->
             var placeLocation = LatLng(place.latitude, place.longitude)
             var distantePlace = SphericalUtil.computeDistanceBetween(placeLocation, LatLng(mLocation.latitude, mLocation.longitude))
 
@@ -245,12 +245,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             }
 
             if (distantePlace <= (DISTANCE)) {
-                listNearGym.add(place)
+                listNearGymModel.add(place)
             }
 
         }
 
-        listNearGym.remove(nearestPlace)
+        listNearGymModel.remove(nearestPlace)
     }
 
 }
