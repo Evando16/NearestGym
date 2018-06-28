@@ -14,7 +14,7 @@ import com.freegym.ej.freegym.fragment.MapsFragment
 import com.freegym.ej.freegym.fragment.StretchingsFragment
 import kotlinx.android.synthetic.main.activity_equipments.*
 
-class EquipmentsActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val MY_PERMISSIONS_REQUEST_LOCATION = 99
 
