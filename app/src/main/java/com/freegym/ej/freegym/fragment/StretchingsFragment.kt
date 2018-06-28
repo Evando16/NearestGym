@@ -6,9 +6,10 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.beust.klaxon.Klaxon
 import com.freegym.ej.freegym.R
 import com.freegym.ej.freegym.adapter.StretchingAdapter
-import com.freegym.ej.freegym.model.Stretching
+import com.freegym.ej.freegym.model.StretchingModel
 import kotlinx.android.synthetic.main.fragment_stretchings.*
 
 class StretchingsFragment : Fragment() {
@@ -33,18 +34,16 @@ class StretchingsFragment : Fragment() {
         stretchingListRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }
 
-    private fun buildStretching(): List<Stretching> {
-        return listOf(
-                Stretching("Multiexercitador", ""),
-                Stretching("Pressão de Pernas", ""),
-                Stretching("Remada Sentada", ""),
-                Stretching("Extensora e Agachamento", ""),
-                Stretching("Alongador", ""),
-                Stretching("Rotação Vertical", ""),
-                Stretching("Simulador de Cavalgada", ""),
-                Stretching("Rotação Dupla Digonal", ""),
-                Stretching("Simulador de Caminhada", ""),
-                Stretching("Esqui", "")
-        )
+    private fun buildStretching(): List<StretchingModel> {
+        val equipmentsDbFileName = "stretching.db.json"
+        var readDbFileContent = context?.assets?.open(equipmentsDbFileName)?.bufferedReader().use { it?.readText() }
+        if (readDbFileContent == null)
+            readDbFileContent = "[]"
+
+        var stretchingModel = Klaxon().parseArray<StretchingModel>(readDbFileContent)
+        if (stretchingModel == null)
+            stretchingModel = emptyList()
+
+        return stretchingModel
     }
 }
