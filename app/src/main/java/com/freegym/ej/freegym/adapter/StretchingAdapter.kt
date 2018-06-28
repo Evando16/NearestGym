@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.freegym.ej.freegym.DetailsActivity
-import com.freegym.ej.freegym.DetailsStretchingActivity
 import com.freegym.ej.freegym.R
 import com.freegym.ej.freegym.model.StretchingModel
 import kotlinx.android.synthetic.main.simple_card.view.*
@@ -43,8 +42,8 @@ class StretchingAdapter(
             card.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
                     val intent = Intent(context, DetailsActivity::class.java)
-                    intent.putExtra(DetailsStretchingActivity.INTENT_TITLE, stretchingModelExercises[adapterPosition].name)
-                    intent.putStringArrayListExtra(DetailsStretchingActivity.INTENT_PARAGRAPHS, stretchingModelExercises[adapterPosition].description)
+                    intent.putExtra(DetailsActivity.INTENT_TITLE, stretchingModelExercises[adapterPosition].name)
+                    intent.putStringArrayListExtra(DetailsActivity.INTENT_PARAGRAPHS, stretchingModelExercises[adapterPosition].description)
                     ContextCompat.startActivity(context, intent, null)
                 }
             })
