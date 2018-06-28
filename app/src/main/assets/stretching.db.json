@@ -1,6 +1,11 @@
 [
   {
     "name": "Alongamento dos Escalenos",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé ou sentado",
@@ -17,6 +22,11 @@
   },
   {
     "name": "Alongamento do Trapézio",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé ou sentado",
@@ -33,6 +43,11 @@
   },
   {
     "name": "Alongamento do Tríceps braquial",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -48,6 +63,11 @@
   },
   {
     "name": "Alongamento do Bíceps braquial",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -64,6 +84,11 @@
   },
   {
     "name": "Alongamento do Flexores do punho",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -79,6 +104,11 @@
   },
   {
     "name": "Alongamento do Peitoral maior",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -94,6 +124,11 @@
   },
   {
     "name": "Alongamento do Braquial e Braquiorradial",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -110,6 +145,11 @@
   },
   {
     "name": "Alongamento do Latíssimo do Dorso",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -125,6 +165,11 @@
   },
   {
     "name": "Alongamento do Iliopsoas",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -140,6 +185,11 @@
   },
   {
     "name": "Alongamento do Tensor da fáscia lata",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -157,6 +207,11 @@
   },
   {
     "name": "Alongamento do Isquiossurais",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé ou sentado",
@@ -172,6 +227,11 @@
   },
   {
     "name": "Alongamento do Glúteo máximo",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -187,6 +247,11 @@
   },
   {
     "name": "Alongamento dos Adutores do quadril",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -202,6 +267,11 @@
   },
   {
     "name": "Alongamento do Sóleo",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -218,6 +288,11 @@
   },
   {
     "name": "Alongamento do Sóleo",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Posicionamento</b>",
       "<b>-</b> Em pé",
@@ -234,6 +309,11 @@
   },
   {
     "name": "Caminhada",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>-</b> Frequência semanal: 5 a 7 dias por semana",
       "<b>-</b> Duração: mínimo de 30 minutos",
@@ -246,6 +326,11 @@
   },
   {
     "name": "Corrida",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Frequência semanal:</b> 5 a 7 dias por semana",
       "<b>Duração:</b> mínimo de 30 minutos",

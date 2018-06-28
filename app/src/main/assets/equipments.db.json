@@ -1,19 +1,29 @@
 [
   {
     "name": "Multiexercitador",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Fortalece, alonga e aumenta a flexibilidade dos pernas e braços",
-      "<br><b>Como utilizar</b>",
-      "<br><b>Exercícios de perna:</b> Sentado com as costas totalmente apoiadas na cadeira, colocar a perna em cima do rolo preto e abaixar o rolo o máximo que conseguir, flexionando o joelho e voltando para a posição inicial - ou colocar a perna em baixo do rolo preto e elevar o joelho",
-      "<br><b>Cuidados:</b> Os movimentos devem ser feitos sempre no mesmo ritmo e não muito rápido. Costas sempre apoiadas na cadeira e pés apoiados no chão",
-      "<br><b>Exercícios de braço:</b> Sentado com as costas totalmente apoiadas na cadeira, segure nos apoios de mão e estique os braços quase totalmente, logo após, volte para posição inicial e repita o movimento",
-      "<br><b>Cuidado:</b> Pés um pouco afastados um do outro e sempre apoiados no chão, coluna reta e encostada totalmente na cadeira. No fim de cada movimento, não estique o braço totalmente",
-      "<br><b>Exercícios costa e ombro:</b> Sentado no banco sem encosto, manter a coluna reta. Segure no apoio de mão que está acima da sua cabeça e o traga para na altura do ombro",
-      "<br><b>Cuidado:</b> pés um pouco afastados um do outro e sempre apoiados no chão, coluna reta e não estique o braço totalmente no fim do movimento"
+      "<b>Como utilizar</b>",
+      "<b>Exercícios de perna:</b> Sentado com as costas totalmente apoiadas na cadeira, colocar a perna em cima do rolo preto e abaixar o rolo o máximo que conseguir, flexionando o joelho e voltando para a posição inicial - ou colocar a perna em baixo do rolo preto e elevar o joelho",
+      "<b>Cuidados:</b> Os movimentos devem ser feitos sempre no mesmo ritmo e não muito rápido. Costas sempre apoiadas na cadeira e pés apoiados no chão",
+      "<b>Exercícios de braço:</b> Sentado com as costas totalmente apoiadas na cadeira, segure nos apoios de mão e estique os braços quase totalmente, logo após, volte para posição inicial e repita o movimento",
+      "<b>Cuidado:</b> Pés um pouco afastados um do outro e sempre apoiados no chão, coluna reta e encostada totalmente na cadeira. No fim de cada movimento, não estique o braço totalmente",
+      "<b>Exercícios costa e ombro:</b> Sentado no banco sem encosto, manter a coluna reta. Segure no apoio de mão que está acima da sua cabeça e o traga para na altura do ombro",
+      "<b>Cuidado:</b> Pés um pouco afastados um do outro e sempre apoiados no chão, coluna reta e não estique o braço totalmente no fim do movimento"
     ]
   },
   {
     "name": "Pressão de Pernas",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/v1530069294/mais-ativo-academia/pressao_de_pernas_thumbnail.png",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Fortalecimento dos músculos do quadril, coxa e panturrilha",
       "<br><b>Como utilizar:</b> sentado, apoiar toda a costa na cadeira e com os joelhos ainda flexionados apoiar os pés no suporte preto. Esticar os joelhos levando o acento para trás e voltar a posição inicial",
@@ -22,6 +32,11 @@
   },
   {
     "name": "Remada Sentada",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/remada_sentada_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Indicado para fortalecimento musculatura da cintura escapular (ombros porção posterior, das costas porção superior, pescoço região posterior, dos braços). Ótimo aparelho para quem sofre de tendinite ou bursite",
       "<br><b>Como utilizar:</b> Encostar totalmente as costas na cadeira e manter reta, executando com o cotovelo na altura dos ombros, esticando os braços e flexionando lentamente, trazendo as alavancas para perto do peitoral. Manter os pés apoiados no local indicado",
@@ -31,6 +46,11 @@
   },
   {
     "name": "Extensora e Agachamento",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Trabalhar os membros inferiores, fortalecendo a musculatura dos glúteos, coxa (quadríceps) e da perna para ganho de flexibilidade",
       "<br><b>Como utilizar:</b> Ao sentar no aparelho, manter a coluna ereta e encostada na cadeira. Braços mantidos em 90° de flexão, segurando nos locais indicados. As pernas devem ser posicionadas no local adequado para fazer um movimento de extensão da perna e joelho (elevando), como se fosse chutar algo ou levantar peso com a parte anterior da perna",
@@ -40,6 +60,11 @@
   },
   {
     "name": "Alongador",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/alongador_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Alonga e aumenta a mobilidade da articulação dos membros superiores",
       "<br><b>Como utilizar:</b> Posicionar as mãos de forma paralela a barra circular e girar somente o tronco fazendo descarga de peso",
@@ -49,6 +74,11 @@
   },
   {
     "name": "Rotação Vertical",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/rotacao_vertical_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Fortalece os membros superiores, melhorando a coordenação motora e a mobilidade das articulações e cotovelos",
       "<br><b>Como utilizar:</b> Prensar uma mão sobre o pino preto e girar fazendo movimentos de círculos",
@@ -58,6 +88,11 @@
   },
   {
     "name": "Simulador de Cavalgada",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Melhora a capacidade cardiorrespiratória e fortalece os músculos de membro superior e inferior, ou seja, braços e pernas",
       "<br><b>Como utilizar:</b> Sentado, com os pés na parte preta da barra mais próxima do chão. As mãos ficam fixas na parte preta do aparelho um pouco acima do ombro. As pernas devem ser impulsionadas para frente fazendo um movimento de vai e volta. Os joelhos não podem ficar totalmente estendidos e manter uma boa postura",
@@ -67,6 +102,11 @@
   },
   {
     "name": "Rotação Dupla Diagonal",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/rotacao_dupla_diagonal_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Melhora e aumenta a mobilidade das articulações dos cotovelos e ombros. Fortalece os músculos dos ombros, peito, braços e costas",
       "<br><b>Como utilizar:</b> Segurar a bola preta com uma mão direita e outra com a mão esquerda, fazer movimentos circulares, respeitando sua amplitude de movimento",
@@ -76,6 +116,11 @@
   },
   {
     "name": "Simulador de caminhada",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Aumenta a mobilidade dos membros inferiores e desenvolve coordenação motora",
       "<br><b>Como utilizar:</b> Simule uma caminhada (não abra muito as penas), realize movimentos alternados com as pernas e mantenha o tronco reto e contraia o abdômen",
@@ -85,6 +130,11 @@
   },
   {
     "name": "Esqui",
+    "thumbnailUrl": "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_thumbnail.jpg",
+    "picturesUrls": [
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_01.jpg",
+      "http://res.cloudinary.com/stanleysathler/image/upload/mais-ativo-academia/multiexercitador_02.jpg"
+    ],
     "description": [
       "<b>Benefícios:</b> Fortalece a musculatura das costas, dos ombros e melhorar a função cardiorrespiratória",
       "<br><b>Como utilizar:</b> Simule uma caminhada (não abra muito as penas), realize movimentos alternados com as pernas e com os braços e mantenha o tronco reto e contraia o abdômen",

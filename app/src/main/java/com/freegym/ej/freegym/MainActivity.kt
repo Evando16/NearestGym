@@ -8,19 +8,18 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import com.freegym.ej.freegym.fragment.EquipmentsFragment
 import com.freegym.ej.freegym.fragment.MapsFragment
 import com.freegym.ej.freegym.fragment.StretchingsFragment
-import kotlinx.android.synthetic.main.activity_equipments.*
+import kotlinx.android.synthetic.main.activity_main.*
 
-class EquipmentsActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val MY_PERMISSIONS_REQUEST_LOCATION = 99
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_equipments)
+        setContentView(R.layout.activity_main)
         setSupportActionBar(appbar)
 
         initBottomNavigationView()

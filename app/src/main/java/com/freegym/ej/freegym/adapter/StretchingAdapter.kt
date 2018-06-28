@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.freegym.ej.freegym.DetailsActivity
 import com.freegym.ej.freegym.R
 import com.freegym.ej.freegym.model.StretchingModel
@@ -38,11 +39,13 @@ class StretchingAdapter(
             val card = itemView.simple_card
             val picture = itemView.simple_card__picture
             val title = itemView.simple_card__title
+            Glide.with(context).load(stretchingModelExercises[adapterPosition].thumbnailUrl).into(picture)
 
             card.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
                     val intent = Intent(context, DetailsActivity::class.java)
                     intent.putExtra(DetailsActivity.INTENT_TITLE, stretchingModelExercises[adapterPosition].name)
+                    intent.putStringArrayListExtra(DetailsActivity.INTENT_BANNERS, stretchingModelExercises[adapterPosition].picturesUrls)
                     intent.putStringArrayListExtra(DetailsActivity.INTENT_PARAGRAPHS, stretchingModelExercises[adapterPosition].description)
                     ContextCompat.startActivity(context, intent, null)
                 }
