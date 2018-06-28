@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.freegym.ej.freegym.DetailsActivity
 import com.freegym.ej.freegym.R
 import com.freegym.ej.freegym.model.EquipmentModel
@@ -40,17 +41,18 @@ class EquipmentsAdapter(
             val picture = itemView.simple_card__picture
             val title = itemView.simple_card__title
 
+            title.text = equipment.name
+            Glide.with(context).load(equipments[adapterPosition].thumbnailUrl).into(picture)
+
             card.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
                     val intent = Intent(context, DetailsActivity::class.java)
                     intent.putExtra(DetailsActivity.INTENT_TITLE, equipments[adapterPosition].name)
+                    intent.putStringArrayListExtra(DetailsActivity.INTENT_BANNERS, equipments[adapterPosition].picturesUrls)
                     intent.putStringArrayListExtra(DetailsActivity.INTENT_PARAGRAPHS, equipments[adapterPosition].description)
                     startActivity(context, intent, null)
                 }
             })
-
-            title.text = equipment.name
-            picture.setImageResource(R.drawable.eq_caminhada_individual)
         }
     }
 
