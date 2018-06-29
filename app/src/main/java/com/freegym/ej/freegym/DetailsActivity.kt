@@ -44,12 +44,10 @@ class DetailsActivity : AppCompatActivity() {
         val paragraphs = intent.getStringArrayListExtra(INTENT_PARAGRAPHS)
         paragraphs.forEach({
             val textView = TextView(this)
-
             val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            layoutParams.setMargins(0, 15, 0, 15)
 
+            layoutParams.setMargins(0, 15, 0, 15)
             textView.text = it
-            // textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, Float.fromBits(16))
             textView.layoutParams = layoutParams
 
             main_layout.addView(textView)
