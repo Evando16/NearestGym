@@ -47,10 +47,9 @@ class DetailsActivity : AppCompatActivity() {
         val paragraphs = intent.getStringArrayListExtra(INTENT_PARAGRAPHS)
         paragraphs.forEach {
             val textView = TextView(this)
-
             val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            layoutParams.setMargins(0, 0, 0, 10)
 
+            layoutParams.setMargins(0, 15, 0, 15)
             textView.text = Html.fromHtml(it, Html.FROM_HTML_MODE_COMPACT)
             textView.layoutParams = layoutParams
 

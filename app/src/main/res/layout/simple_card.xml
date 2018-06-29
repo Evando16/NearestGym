@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:padding="10dp"
+            android:gravity="center"
             android:textAlignment="center"
             android:textSize="16sp"
             tools:text="Equipment's name" />
