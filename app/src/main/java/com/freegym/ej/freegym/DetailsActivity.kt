@@ -54,7 +54,7 @@ class DetailsActivity : AppCompatActivity() {
             textView.text = Html.fromHtml(it, Html.FROM_HTML_MODE_COMPACT)
             textView.layoutParams = layoutParams
 
-            main_layout.addView(textView)
+            description.addView(textView)
         }
     }
 }
