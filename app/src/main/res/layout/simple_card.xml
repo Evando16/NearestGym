@@ -15,7 +15,8 @@
         <ImageView
             android:id="@+id/simple_card__picture"
             android:layout_width="match_parent"
-            android:layout_height="150dp" />
+            android:layout_height="150dp"
+            android:layout_margin="10dp" />
 
         <View
             android:layout_width="match_parent"
@@ -25,8 +26,9 @@
         <TextView
             android:id="@+id/simple_card__title"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:padding="10dp"
+            android:gravity="center"
             android:textAlignment="center"
             android:textSize="16sp"
             tools:text="Equipment's name" />

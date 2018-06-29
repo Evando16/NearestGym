@@ -1,6 +1,6 @@
 package com.freegym.ej.freegym.model
 
-class Gym {
+class GymModel {
     var id: Int = 0
     var name: String = ""
     var streetName: String = ""
