@@ -2,10 +2,13 @@ package com.freegym.ej.freegym
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
+import android.text.method.ScrollingMovementMethod
 import android.util.Half.toFloat
 import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_details.*
@@ -42,15 +45,15 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun buildContentParagraphs() {
         val paragraphs = intent.getStringArrayListExtra(INTENT_PARAGRAPHS)
-        paragraphs.forEach({
+        paragraphs.forEach {
             val textView = TextView(this)
             val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
 
             layoutParams.setMargins(0, 15, 0, 15)
-            textView.text = it
+            textView.text = Html.fromHtml(it, Html.FROM_HTML_MODE_COMPACT)
             textView.layoutParams = layoutParams
 
             main_layout.addView(textView)
-        })
+        }
     }
 }
